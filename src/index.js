@@ -1,5 +1,4 @@
 import { getList } from '@store/actions';
-import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function App() {
   const dispatch = useDispatch()
   const list = useSelector(state => state.list)
-  
+
   useEffect(() => {
     dispatch(getList({ page: 1 }))
   }, [])
@@ -18,7 +17,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
     </View>
   );
 }

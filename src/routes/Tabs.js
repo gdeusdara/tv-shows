@@ -14,18 +14,20 @@ function Tabs() {
   const SearchOptions = {
     tabBarLabel: 'Search',
     tabBarShowLabel: false,
-    tabBarIcon: ({ color }) => <SearchIcon color={color} />
+    tabBarIcon: ({ color }) => <SearchIcon color={color} />,
   }
 
   const screenOptions = {
     tabBarActiveTintColor: theme.colors.text,
     tabBarInactiveTintColor: theme.colors.inactive,
-    tabBarStyle: { backgroundColor: theme.colors.background }
+    tabBarStyle: { backgroundColor: theme.colors.background },
+    tabBarIndicatorStyle: { backgroundColor: theme.colors.text },
+    tabBarItemStyle: { width: 'auto' }
   }
 
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Search" options={SearchOptions} component={Favorites} />
+    <Tab.Navigator screenOptions={screenOptions} initialRouteName="List">
+      <Tab.Screen name="Search" options={SearchOptions} component={Search} />
       <Tab.Screen name="List" options={listOptions} component={List} />
       <Tab.Screen name="Favorites" component={Search} />
     </Tab.Navigator>

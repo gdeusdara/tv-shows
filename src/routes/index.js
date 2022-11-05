@@ -1,12 +1,12 @@
 import { SafeAreaView } from '@components/Basic/SafeAreaView';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 import Tabs from './Tabs';
 function Routes() {
   return (
     <SafeAreaView>
-      <StatusBar barStyle="light-content" />
+      <StatusBar style="light" />
       <NavigationContainer>
         <Tabs/>
       </NavigationContainer>
