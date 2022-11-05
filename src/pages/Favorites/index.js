@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
-export default function App() {
+export default function App({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>FAVORITES</Text>
+      <TouchableHighlight onPress={() => navigation.navigate('Details')}>
+        <Text>FAVORITES</Text>
+      </TouchableHighlight>
     </View>
   );
 }

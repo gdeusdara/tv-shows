@@ -29,7 +29,7 @@ function Tabs() {
     <Tab.Navigator screenOptions={screenOptions} initialRouteName="List">
       <Tab.Screen name="Search" options={SearchOptions} component={Search} />
       <Tab.Screen name="List" options={listOptions} component={List} />
-      <Tab.Screen name="Favorites" component={Search} />
+      <Tab.Screen name="Favorites" component={Favorites} />
     </Tab.Navigator>
   );
 }
