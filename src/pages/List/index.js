@@ -1,18 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import TVSeriesList from '@components/TVSeriesList';
+import useList from '@hooks/useList';
 
-export default function App() {
+export default function List() {
+  const { list } = useList()
+
   return (
-    <View style={styles.container}>
-      <Text>LIST</Text>
-    </View>
+    <TVSeriesList data={list}  />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

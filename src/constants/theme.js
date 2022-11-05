@@ -7,6 +7,7 @@ const theme = {
     background: '#111820'
   },
   sizes: {
+    SS: 5,
     S: 10,
     SM: 12,
     M: 15,

@@ -14,7 +14,6 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
   }
 
   function reducer(state = initialState, action = actionObj) {
-    console.log('action', action)
     switch (action.type) {
       case actions.start:
         return {
@@ -23,7 +22,6 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
           data: null,
         };
       case actions.success:
-        console.log('action', action)
         const newState = {
           ...state,
           loading: false,
