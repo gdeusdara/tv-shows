@@ -11,7 +11,7 @@ async function action({
 }) {
   try {
     onStart()
-    api.get('/shows', {
+    const response = await api.get('shows', {
       params: {
         page: params.page || 1
       }
@@ -28,7 +28,8 @@ async function action({
       onSuccess([...state.list.data, response.data])
     }
   } catch (err) {
-    dispatch(getLocationFailure('Ocorreu um erro tentar acessar localização'));
+    console.log('err', err)
+    dispatch(onFailure('An error has ocurred'));
   }
 }
 

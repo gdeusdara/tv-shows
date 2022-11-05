@@ -1,17 +1,13 @@
-import * as types from "../constants/actionTypes";
-import api from "../services/api";
-
-
 const basicAction = ({ SUCCESS = '', START = '', FAILURE = '', action = async () => {} }) => {
   const onStart = () => {
     return {
-      type: SUCCESS
+      type: START
     };
   };
 
   const onSuccess = (data, extraData) => {
     return {
-      type: START,
+      type: SUCCESS,
       data,
       extraData
     };
@@ -31,7 +27,7 @@ const basicAction = ({ SUCCESS = '', START = '', FAILURE = '', action = async ()
         state: getState(),
         onStart: () => dispatch(onStart()),
         onSuccess: (data, extraData) => dispatch(onSuccess(data, extraData)),
-        onFailure: error => () => dispatch(onFailure())
+        onFailure: error => dispatch(onFailure(error))
       })
     };
   }
