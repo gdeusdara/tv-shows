@@ -2,11 +2,11 @@ const theme = {
   colors: {
     primary: '#4b98c4',
     text: '#e9f1f7',
-    unactive: '#3c434a',
+    inactive: '#3c434a',
     secondaryText: '#848a92',
     background: '#111820'
   },
-  textSizes: {
+  sizes: {
     S: 10,
     SM: 12,
     M: 15,

@@ -1,17 +1,20 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import theme from '@constants/theme';
 import { Provider } from 'react-redux';
 import { store, persistor } from '@store';
 import { PersistGate } from 'redux-persist/integration/react'
-import DefaultApp from '..';
+import Routes from '@routes/index';
 
 const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
-          <DefaultApp />
+          <SafeAreaProvider>
+            <Routes />
+          </SafeAreaProvider>
         </ThemeProvider>
       </PersistGate>
     </Provider>
