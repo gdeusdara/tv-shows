@@ -1,5 +1,6 @@
 import { Container } from '@components/Basic/Container';
 import { ActivityIndicator } from '@components/Basic/ActivityIndicator';
+import { tvshowType } from '@constants/types';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { FlatList } from 'react-native';
@@ -46,13 +47,7 @@ function TVSeriesList({
 }
 
 TVSeriesList.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    image: PropTypes.shape({
-      medium: PropTypes.string,
-    }),
-  })),
+  data: PropTypes.arrayOf(tvshowType),
   message: PropTypes.string,
   loading: PropTypes.bool,
   onEndReached: PropTypes.func,

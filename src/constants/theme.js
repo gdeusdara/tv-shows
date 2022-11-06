@@ -17,6 +17,7 @@ const theme = {
     LX: 22,
     X: 25,
     XX: 30,
+    XXX: 50,
   },
   spaces: {
     S: 5,

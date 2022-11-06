@@ -1,25 +1,26 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { noImage } from '@assets/index';
+import { useNavigation } from '@react-navigation/native';
+import { tvshowType } from '@constants/types';
+import getImageUrl from '@utils/getImageUrl';
 import { Container, Title, Poster } from './styles';
 
 function Item({ item }) {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate('Details', { show: item });
+  };
+
   return useMemo(() => (
-    <Container>
-      <Poster source={item.image ? { uri: item.image.medium } : noImage} />
+    <Container onPress={onPress}>
+      <Poster source={getImageUrl(item.image)} />
       <Title>{item.name}</Title>
     </Container>
   ), [item.id]);
 }
 
 Item.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    image: PropTypes.shape({
-      medium: PropTypes.string,
-    }),
-  }).isRequired,
+  item: tvshowType.isRequired,
 };
 
 export default Item;
