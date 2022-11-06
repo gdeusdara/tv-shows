@@ -2,13 +2,13 @@ import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 import HTMLView from 'react-native-htmlview';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Container } from '@components/Basic/Container';
 import { Text } from '@components/Basic/Text';
+import { SafeAreaView } from '@components/Basic/SafeAreaView';
 
 const win = Dimensions.get('window');
 
-export const Content = styled(Container).attrs(() => ({
-  noPadding: true,
+export const Content = styled(SafeAreaView).attrs(() => ({
+  edges: ['left', 'right', 'bottom'],
 }))``;
 
 export const Scroll = styled.ScrollView``;
@@ -33,9 +33,7 @@ export const TitleView = styled(LinearGradient).attrs(({ theme }) => ({
 export const Title = styled(Text).attrs(({ theme }) => ({
   size: theme.sizes.XX,
   numberOfLines: 2,
-}))`
-  margin-bottom: ${({ theme }) => theme.sizes.M}px;
-`;
+}))``;
 
 export const SectionTitle = styled(Text).attrs(({ theme }) => ({
   size: theme.sizes.L,
@@ -57,4 +55,8 @@ export const Summary = styled(HTMLView).attrs(({ theme }) => ({
   },
 }))`
   margin-top: ${({ theme }) => theme.sizes.M}px;
+`;
+
+export const Section = styled.View`
+  margin: ${({ theme }) => theme.sizes.SS}px 0px;
 `;

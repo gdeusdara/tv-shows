@@ -13,6 +13,7 @@ import {
   Scroll,
   Summary,
   Info,
+  Section,
 } from './styles';
 
 export default function Details({ route }) {
@@ -27,8 +28,29 @@ export default function Details({ route }) {
           <Title>{show.name}</Title>
         </TitleView>
         <Container>
-          <SectionTitle>Summary</SectionTitle>
-          <Summary value={show.summary} />
+          <Section>
+            <SectionTitle>Summary</SectionTitle>
+            <Summary value={show.summary} />
+          </Section>
+
+          <Section>
+            <Description>
+              <Info>Genre(s): </Info>
+              {show.genres.join(', ')}
+            </Description>
+          </Section>
+          <Section>
+            <Description>
+              <Info>Days: </Info>
+              {show.schedule.days.join(', ')}
+            </Description>
+          </Section>
+          <Section>
+            <Description>
+              <Info>Time: </Info>
+              {show.schedule.time}
+            </Description>
+          </Section>
         </Container>
       </Scroll>
     </Content>
