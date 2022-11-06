@@ -2,20 +2,32 @@ import { ActivityIndicator } from '@components/Basic/ActivityIndicator';
 import { Container } from '@components/Basic/Container';
 import { tvshowType } from '@constants/types';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { SectionList } from 'react-native';
 import Item from './Item';
-import { SectionTitle } from './styles';
+import { SectionTitle, TouchableTitle } from './styles';
 
 function EpisodesList({
   data,
   loading,
 }) {
-  const renderItem = ({ item }) => (
-    <Item item={item} />
-  );
+  const [sectionToRender, setSectionToRender] = useState({});
 
-  const header = ({ section: { season } }) => <SectionTitle>{`Season ${season}`}</SectionTitle>;
+  const renderItem = ({ item, section }) => (sectionToRender[section.season] ? (
+    <Item item={item} />
+  ) : null);
+
+  const onPressSection = (season) => {
+    sectionToRender[season] = !sectionToRender[season];
+
+    setSectionToRender({ ...sectionToRender });
+  }
+
+  const header = ({ section: { season } }) => (
+    <TouchableTitle onPress={() => onPressSection(season)}>
+      <SectionTitle>{`Season ${season}`}</SectionTitle>
+    </TouchableTitle>
+  );
 
   const renderEmptyComponent = () => {
     if (loading) return <ActivityIndicator />;

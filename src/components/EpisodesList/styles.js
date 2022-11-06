@@ -7,8 +7,10 @@ export const Content = styled.View`
   justify-content: center;
 `;
 
+export const TouchableTitle = styled.TouchableOpacity`
+  padding: ${({ theme }) => theme.sizes.SS}px;
+`;
+
 export const SectionTitle = styled(Text).attrs(({ theme }) => ({
   size: theme.sizes.L,
-}))`
-  padding-bottom: ${({ theme }) => theme.sizes.SS}px;
-`;
+}))``;
