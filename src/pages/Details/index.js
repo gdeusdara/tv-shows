@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { tvshowType } from '@constants/types';
 import getImageUrl from '@utils/getImageUrl';
 import { Container } from '@components/Basic/Container';
+import EpisodesList from '@components/EpisodesList';
+import useDetails from '@hooks/useDetails';
 import {
   Content,
   Poster,
@@ -18,7 +20,8 @@ import {
 
 export default function Details({ route }) {
   const { show } = route.params;
-  console.log(show);
+
+  const { list, loading, error } = useDetails({ id: show.id });
 
   return (
     <Content>
@@ -52,6 +55,7 @@ export default function Details({ route }) {
             </Description>
           </Section>
         </Container>
+        <EpisodesList data={list} loading={loading} message={error} />
       </Scroll>
     </Content>
   );

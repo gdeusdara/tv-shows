@@ -1,6 +1,8 @@
 import { useFocusEffect } from '@react-navigation/native';
 import { onSearch } from '@store/actions';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import {
+  useEffect, useRef, useState, useCallback,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const useList = () => {

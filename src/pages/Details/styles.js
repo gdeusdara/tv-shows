@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
-import HTMLView from 'react-native-htmlview';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Text } from '@components/Basic/Text';
 import { SafeAreaView } from '@components/Basic/SafeAreaView';
+import { HTMLView } from '@components/Basic/HTMLView';
 
 const win = Dimensions.get('window');
 
@@ -47,13 +47,7 @@ export const Info = styled(Text).attrs(({ theme }) => ({
   color: theme.colors.primary,
 }))``;
 
-export const Summary = styled(HTMLView).attrs(({ theme }) => ({
-  stylesheet: {
-    p: {
-      color: theme.colors.secondaryText,
-    },
-  },
-}))`
+export const Summary = styled(HTMLView)`
   margin-top: ${({ theme }) => theme.sizes.M}px;
 `;
 
