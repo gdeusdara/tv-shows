@@ -10,9 +10,8 @@ const { initialState, reducer } = basicReducer({
   start: GET_LIST_START,
   success: GET_LIST_SUCCESS,
   failure: GET_LIST_FAILURE,
-})
+});
 
-export default reducer
+export default reducer;
 
 export { initialState };
-

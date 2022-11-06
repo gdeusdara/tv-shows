@@ -1,21 +1,22 @@
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components';
-import Tabs from './Tabs';
 import { Details } from '@pages/index';
+import Tabs from './Tabs';
 
 const Stack = createNativeStackNavigator();
 
 function Stacks() {
-  const theme = useTheme()
+  const theme = useTheme();
 
   const tabsOptions = {
-    headerShown: false
-  }
+    headerShown: false,
+  };
 
   const screenOptions = {
     headerStyle: { backgroundColor: theme.colors.background },
-    headerTintColor: theme.colors.text
-  }
+    headerTintColor: theme.colors.text,
+  };
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
@@ -25,4 +26,4 @@ function Stacks() {
   );
 }
 
-export default Stacks
+export default Stacks;

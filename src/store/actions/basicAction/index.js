@@ -1,24 +1,20 @@
-const basicAction = ({ SUCCESS = '', START = '', FAILURE = '', action = async () => {} }) => {
-  const onStart = () => {
-    return {
-      type: START
-    };
-  };
+const basicAction = ({
+  SUCCESS = '', START = '', FAILURE = '', action = async () => {},
+}) => {
+  const onStart = () => ({
+    type: START,
+  });
 
-  const onSuccess = (data, extraData) => {
-    return {
-      type: SUCCESS,
-      data,
-      extraData
-    };
-  };
+  const onSuccess = (data, extraData) => ({
+    type: SUCCESS,
+    data,
+    extraData,
+  });
 
-  const onFailure = error => {
-    return {
-      type: FAILURE,
-      error
-    };
-  };
+  const onFailure = (error) => ({
+    type: FAILURE,
+    error,
+  });
 
   return function defaultAction(params) {
     return async (dispatch, getState) => {
@@ -27,10 +23,10 @@ const basicAction = ({ SUCCESS = '', START = '', FAILURE = '', action = async ()
         state: getState(),
         onStart: () => dispatch(onStart()),
         onSuccess: (data, extraData) => dispatch(onSuccess(data, extraData)),
-        onFailure: error => dispatch(onFailure(error))
-      })
+        onFailure: (error) => dispatch(onFailure(error)),
+      });
     };
-  }
-}
+  };
+};
 
-export default basicAction
+export default basicAction;

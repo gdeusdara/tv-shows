@@ -4,10 +4,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import theme from '@constants/theme';
 import { Provider } from 'react-redux';
 import { store, persistor } from '@store';
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react';
 import Routes from '@routes/index';
 
-const App = () => {
+function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -19,6 +19,6 @@ const App = () => {
       </PersistGate>
     </Provider>
   );
-};
+}
 
-export default App
+export default App;

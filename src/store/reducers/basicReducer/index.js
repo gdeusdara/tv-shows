@@ -2,16 +2,16 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
   const initialState = {
     loading: false,
     data: null,
-    extraData: {},
-    errorMessage: ''
-  }
+    extraData: null,
+    errorMessage: '',
+  };
 
   const actionObj = {
     type: '',
     data: null,
     extraData: null,
-    error: ''
-  }
+    error: '',
+  };
 
   function reducer(state = initialState, action = actionObj) {
     switch (action.type) {
@@ -19,26 +19,20 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
         return {
           ...state,
           loading: true,
-          data: null,
         };
       case actions.success:
-        const newState = {
+        return {
           ...state,
           loading: false,
+          errorMessage: '',
           data: action.data,
-          errorMessage: ''
-        }
-
-        if (action.extraData) {
-          newState.extraData = {...state.extraData, ...action.extraData}
-        }
-
-        return newState;
+          extraData: action.extraData,
+        };
       case actions.failure:
         return {
           ...state,
           loading: false,
-          errorMessage: action.error || ''
+          errorMessage: action.error || '',
         };
       default:
         return state;
@@ -46,6 +40,6 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
   }
 
   return { initialState, reducer };
-}
+};
 
 export default basicReducer;

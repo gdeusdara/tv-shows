@@ -1,3 +1,5 @@
+/* eslint-disable react/style-prop-object */
+import React from 'react';
 import { SafeAreaView } from '@components/Basic/SafeAreaView';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
@@ -11,7 +13,7 @@ function Routes() {
         <Stacks />
       </NavigationContainer>
     </SafeAreaView>
-  )
+  );
 }
 
-export default Routes
+export default Routes;

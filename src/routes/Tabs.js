@@ -1,29 +1,33 @@
+import React from 'react';
 import SearchIcon from '@components/SearchIcon';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useTheme } from 'styled-components';
 import { Favorites, List, Search } from '@pages/index';
+
 const Tab = createMaterialTopTabNavigator();
 
 function Tabs() {
-  const theme = useTheme()
+  const theme = useTheme();
 
   const listOptions = {
-    tabBarLabel: 'TV Shows'
-  }
+    tabBarLabel: 'TV Shows',
+  };
+
+  const tabBarIcon = ({ color }) => <SearchIcon color={color} />;
 
   const SearchOptions = {
     tabBarLabel: 'Search',
     tabBarShowLabel: false,
-    tabBarIcon: ({ color }) => <SearchIcon color={color} />,
-  }
+    tabBarIcon,
+  };
 
   const screenOptions = {
     tabBarActiveTintColor: theme.colors.text,
     tabBarInactiveTintColor: theme.colors.inactive,
     tabBarStyle: { backgroundColor: theme.colors.background },
     tabBarIndicatorStyle: { backgroundColor: theme.colors.text },
-    tabBarItemStyle: { width: 'auto' }
-  }
+    tabBarItemStyle: { width: 'auto' },
+  };
 
   return (
     <Tab.Navigator screenOptions={screenOptions} initialRouteName="List">
@@ -34,4 +38,4 @@ function Tabs() {
   );
 }
 
-export default Tabs
+export default Tabs;
