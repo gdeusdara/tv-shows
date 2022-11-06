@@ -1,18 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import TVSeriesList from '@components/TVSeriesList';
+import useSearch from '@hooks/useSearch';
+import { TextInput } from '@components/Basic/Input';
+import { Content } from './styles';
 
-export default function App() {
+export default function Search() {
+  const {
+    list, error, loading, query, setQuery, inputRef,
+  } = useSearch();
+
   return (
-    <View style={styles.container}>
-      <Text>SEARCH</Text>
-    </View>
+    <Content>
+      <TextInput
+        ref={inputRef}
+        placeholder="Search for TV series..."
+        value={query}
+        onChangeText={(text) => setQuery(text)}
+      />
+      <TVSeriesList
+        data={list}
+        message={error}
+        loading={loading}
+      />
+    </Content>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -1,8 +1,9 @@
 const basicAction = ({
   SUCCESS = '', START = '', FAILURE = '', action = async () => {},
 }) => {
-  const onStart = () => ({
+  const onStart = (extra = {}) => ({
     type: START,
+    extra,
   });
 
   const onSuccess = (data, extraData) => ({
@@ -21,7 +22,7 @@ const basicAction = ({
       await action({
         params,
         state: getState(),
-        onStart: () => dispatch(onStart()),
+        onStart: (extra) => dispatch(onStart(extra)),
         onSuccess: (data, extraData) => dispatch(onSuccess(data, extraData)),
         onFailure: (error) => dispatch(onFailure(error)),
       });

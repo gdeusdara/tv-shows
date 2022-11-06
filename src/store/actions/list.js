@@ -17,11 +17,6 @@ async function action({
       },
     });
 
-    if (response.status !== 200) {
-      onFailure('Error');
-      return;
-    }
-
     if (params.page === 1 || !params.page) {
       onSuccess(response.data);
     } else {

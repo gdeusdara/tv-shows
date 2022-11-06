@@ -4,7 +4,8 @@ const theme = {
     text: '#e9f1f7',
     inactive: '#3c434a',
     secondaryText: '#848a92',
-    background: '#111820'
+    background: '#111820',
+    secondary: '#1c252b',
   },
   sizes: {
     SS: 5,
@@ -15,13 +16,13 @@ const theme = {
     L: 20,
     LX: 22,
     X: 25,
-    XX: 30
+    XX: 30,
   },
   spaces: {
     S: 5,
     M: 10,
-    L: 20
-  }
-}
+    L: 20,
+  },
+};
 
-export default theme
+export default theme;

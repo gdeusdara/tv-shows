@@ -11,6 +11,7 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
     data: null,
     extraData: null,
     error: '',
+    extra: {},
   };
 
   function reducer(state = initialState, action = actionObj) {
@@ -19,6 +20,7 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
         return {
           ...state,
           loading: true,
+          ...action.extra,
         };
       case actions.success:
         return {

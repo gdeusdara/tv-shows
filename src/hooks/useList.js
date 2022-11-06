@@ -24,10 +24,6 @@ const useList = () => {
     fetchList();
   }, []);
 
-  useEffect(() => {
-    console.log('list', list);
-  }, [list]);
-
   return {
     list,
     loading,
