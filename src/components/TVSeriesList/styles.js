@@ -10,4 +10,6 @@ export const Content = styled.View`
 export const Message = styled(Text).attrs(({ theme }) => ({
   color: theme.colors.inactive,
   size: theme.sizes.XX,
-}))``;
+}))`
+  text-align: center;
+`;

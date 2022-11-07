@@ -36,4 +36,3 @@ export const Arrow = styled(MaterialIcons).attrs(({ theme }) => ({
 }))`
   margin-left: ${({ theme }) => theme.sizes.S}px;
 `;
-

@@ -1,20 +1,16 @@
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
+import TVSeriesList from '@components/TVSeriesList';
+import useFavorites from '@hooks/useFavorites';
 
-export default function App({ navigation }) {
+export default function List() {
+  const {
+    list, message,
+  } = useFavorites();
+
   return (
-    <View style={styles.container}>
-      <TouchableHighlight onPress={() => navigation.navigate('Details')}>
-        <Text>FAVORITES</Text>
-      </TouchableHighlight>
-    </View>
+    <TVSeriesList
+      data={list}
+      message={message}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

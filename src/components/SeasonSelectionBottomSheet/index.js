@@ -1,5 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
+import PropTypes from 'prop-types';
+import { tvshowType } from '@constants/types';
 import {
   SectionTitle, TouchableTitle, Arrow, BottomSheet,
 } from './styles';
@@ -40,5 +42,20 @@ function SeasonSelectionBottomSheet({ season, onPressSeason, seasons }) {
     </>
   );
 }
+
+SeasonSelectionBottomSheet.propTypes = {
+  seasons: PropTypes.arrayOf(PropTypes.shape({
+    season: PropTypes.string,
+    data: PropTypes.arrayOf(tvshowType),
+  })),
+  season: PropTypes.string,
+  onPressSeason: PropTypes.func,
+};
+
+SeasonSelectionBottomSheet.defaultProps = {
+  seasons: [],
+  season: '',
+  onPressSeason: () => {},
+};
 
 export default SeasonSelectionBottomSheet;

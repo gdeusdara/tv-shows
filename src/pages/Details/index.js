@@ -34,7 +34,7 @@ export default function Details({ route }) {
   ];
 
   const renderInfo = () => (
-    <Informations info={show} details={details} />
+    <Informations info={show} details={details} favorite />
   );
 
   return (

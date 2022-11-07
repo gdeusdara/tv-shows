@@ -4,25 +4,12 @@ import basicAction from './basicAction';
 
 async function action({
   params,
-  state,
+  // state,
   onStart,
   onSuccess,
   onFailure,
 }) {
   try {
-    const { extraData } = state.details;
-    let newExtraData = {};
-
-    if (extraData) {
-      newExtraData = { ...extraData };
-    }
-
-    // caching
-    if (newExtraData[params.id]) {
-      onSuccess([...newExtraData[params.id]]);
-      return;
-    }
-
     onStart();
 
     const response = await api.get(`shows/${params.id}/episodes`);
@@ -53,10 +40,7 @@ async function action({
       data: currSeasonList,
     });
 
-    // saving cache
-    newExtraData[params.id] = seasons;
-
-    onSuccess([...seasons], newExtraData);
+    onSuccess([...seasons]);
   } catch (err) {
     console.log('err', err);
     onFailure('An error has ocurred while loading the episodes');

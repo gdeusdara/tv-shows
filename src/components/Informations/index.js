@@ -14,8 +14,9 @@ import {
   Info,
   Section,
 } from './styles';
+import Favorite from './Favorite';
 
-export default function Informations({ info, details }) {
+function Informations({ info, details, favorite }) {
   const renderInfo = () => details.map((item) => {
     if (!item.value) return null;
 
@@ -36,6 +37,7 @@ export default function Informations({ info, details }) {
         <Title>{info.name}</Title>
       </TitleView>
       <Container>
+        <Favorite item={info} favorite={favorite} />
         {info.summary ? (
           <Section>
             <SectionTitle>Summary</SectionTitle>
@@ -54,4 +56,11 @@ Informations.propTypes = {
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   })).isRequired,
+  favorite: PropTypes.bool,
 };
+
+Informations.defaultProps = {
+  favorite: false,
+};
+
+export default Informations;

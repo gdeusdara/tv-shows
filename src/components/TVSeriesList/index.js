@@ -19,9 +19,11 @@ function TVSeriesList({
 
   if (message) {
     return (
-      <Content>
-        <Message>{message}</Message>
-      </Content>
+      <Container>
+        <Content>
+          <Message>{message}</Message>
+        </Content>
+      </Container>
     );
   }
 

@@ -10,8 +10,8 @@ const middlewares = [reduxImmutableStateInvariant(), thunk];
 const persistConfig = {
   key: 'tvshows',
   storage: AsyncStorage,
-  blacklist: [
-    'list',
+  whitelist: [
+    'favorites',
   ],
 };
 
