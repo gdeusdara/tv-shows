@@ -6,6 +6,7 @@ import useDetails from '@hooks/useDetails';
 import Informations from '@components/Informations';
 import SeasonSelectionBottomSheet from '@components/SeasonSelectionBottomSheet';
 import {
+  Container,
   Content,
   Scroll,
 } from './styles';
@@ -37,17 +38,19 @@ export default function Details({ route }) {
   );
 
   return (
-    <Content>
-      <Scroll>
-        {renderInfo()}
-        <EpisodesList data={list?.[currSeason]?.data} loading={loading} message={error} />
-      </Scroll>
-      <SeasonSelectionBottomSheet
-        onPressSeason={(item) => setCurrSeason(item)}
-        seasons={list}
-        season={list?.[currSeason] ? `Season ${list[currSeason].season}` : 'Loading...'}
-      />
-    </Content>
+    <Container>
+      <Content>
+        <Scroll>
+          {renderInfo()}
+          <EpisodesList data={list?.[currSeason]?.data} loading={loading} message={error} />
+        </Scroll>
+        <SeasonSelectionBottomSheet
+          onPressSeason={(item) => setCurrSeason(item)}
+          seasons={list}
+          season={list?.[currSeason] ? `Season ${list[currSeason].season}` : 'Loading...'}
+        />
+      </Content>
+    </Container>
   );
 }
 

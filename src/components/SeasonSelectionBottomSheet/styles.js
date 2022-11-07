@@ -7,6 +7,9 @@ export const BottomSheet = styled(DefaultBottomSheet).attrs(({ theme }) => ({
   backgroundStyle: {
     backgroundColor: theme.colors.background,
   },
+  handleIndicatorStyle: {
+    backgroundColor: theme.colors.text,
+  },
 }))`
   background: ${({ theme }) => theme.colors.background};
   padding: ${({ theme }) => theme.sizes.S}px;
