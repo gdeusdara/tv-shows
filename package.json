@@ -56,6 +56,6 @@
     "hooks": {
       "pre-commit": "yarn lint --fix --max-warnings=0"
     }
-  }
+  },
   "private": true
 }

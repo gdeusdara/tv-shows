@@ -24,17 +24,18 @@ To run this project you need to have a node environment (version >= 14) and [Exp
 To run the project, execute the following commands:
 
 ```
-npm install
+yarn install
+
 ```
 
 ```
-npm run android
+yarn android
 ```
 
 OR
 
 ```
-npm run ios
+yarn ios
 ```
 
 ## Done Tasks
