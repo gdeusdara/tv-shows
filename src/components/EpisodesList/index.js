@@ -10,6 +10,7 @@ import { SectionTitle, TouchableTitle } from './styles';
 function EpisodesList({
   data,
   loading,
+  ListHeaderComponent,
 }) {
   const [sectionToRender, setSectionToRender] = useState({});
 
@@ -21,7 +22,7 @@ function EpisodesList({
     sectionToRender[season] = !sectionToRender[season];
 
     setSectionToRender({ ...sectionToRender });
-  }
+  };
 
   const header = ({ section: { season } }) => (
     <TouchableTitle onPress={() => onPressSection(season)}>
@@ -44,6 +45,7 @@ function EpisodesList({
         keyExtractor={(item) => item.id}
         renderSectionHeader={header}
         ListEmptyComponent={renderEmptyComponent}
+        ListHeaderComponent={ListHeaderComponent}
       />
     </Container>
   );
@@ -52,11 +54,13 @@ function EpisodesList({
 EpisodesList.propTypes = {
   data: PropTypes.arrayOf(tvshowType),
   loading: PropTypes.bool,
+  ListHeaderComponent: PropTypes.element,
 };
 
 EpisodesList.defaultProps = {
   data: [],
   loading: false,
+  ListHeaderComponent: () => {},
 };
 
 export default EpisodesList;

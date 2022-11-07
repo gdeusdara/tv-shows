@@ -35,13 +35,15 @@ async function action({
       if (item.season === currSeason) {
         currSeasonList.push(item);
       } else {
-        seasons.push({
-          season: currSeason,
-          data: currSeasonList,
-        });
+        if (currSeasonList.length) {
+          seasons.push({
+            season: currSeason,
+            data: currSeasonList,
+          });
+        }
 
         currSeasonList = [];
-        currSeason += 1;
+        currSeason = item.season;
       }
     });
 
