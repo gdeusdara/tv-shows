@@ -23,7 +23,6 @@ async function action({
       onSuccess([...state.list.data, ...response.data], !response.data.length);
     }
   } catch (err) {
-    console.log('err', err);
     onFailure('An error has ocurred');
   }
 }

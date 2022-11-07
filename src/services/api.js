@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 // import Constants from 'expo-constants';
 
 // console.log('process.env.TV_MAZE_API', process.env.TV_MAZE_API)

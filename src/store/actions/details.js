@@ -42,7 +42,6 @@ async function action({
 
     onSuccess([...seasons]);
   } catch (err) {
-    console.log('err', err);
     onFailure('An error has ocurred while loading the episodes');
   }
 }
