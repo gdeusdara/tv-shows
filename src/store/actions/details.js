@@ -30,7 +30,7 @@ async function action({
           });
         }
 
-        currSeasonList = [];
+        currSeasonList = [item];
         currSeason = item.season;
       }
     });

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { tvshowType } from '@constants/types';
+import { episodeType } from '@constants/types';
 import Informations from '@components/Informations';
 import {
   Content,
@@ -36,6 +36,6 @@ export default function Episode({ route }) {
 
 Episode.propTypes = {
   route: PropTypes.shape({
-    params: PropTypes.shape({ episode: tvshowType }),
+    params: PropTypes.shape({ episode: episodeType }),
   }).isRequired,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { tvshowType } from '@constants/types';
+import { episodeType, tvshowType } from '@constants/types';
 import getImageUrl from '@utils/getImageUrl';
 import { Container } from '@components/Basic/Container';
 import {
@@ -51,7 +51,7 @@ function Informations({ info, details, favorite }) {
 }
 
 Informations.propTypes = {
-  info: tvshowType.isRequired,
+  info: PropTypes.oneOfType([tvshowType, episodeType]).isRequired,
   details: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

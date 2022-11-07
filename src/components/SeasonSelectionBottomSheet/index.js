@@ -45,7 +45,7 @@ function SeasonSelectionBottomSheet({ season, onPressSeason, seasons }) {
 
 SeasonSelectionBottomSheet.propTypes = {
   seasons: PropTypes.arrayOf(PropTypes.shape({
-    season: PropTypes.string,
+    season: PropTypes.number,
     data: PropTypes.arrayOf(tvshowType),
   })),
   season: PropTypes.string,

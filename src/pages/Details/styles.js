@@ -7,6 +7,7 @@ export const Content = styled(SafeAreaView).attrs(() => ({
 }))``;
 
 export const Scroll = styled.ScrollView``;
+
 export const Container = styled(GestureHandlerRootView)`
   flex: 1;
 `;
