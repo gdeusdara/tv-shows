@@ -20,6 +20,8 @@ const useList = () => {
     if ((list && list.length) || loading) return '';
     if (error) return error;
 
+    if (list && !list.length && query) return 'Not found ):';
+
     return 'What are you looking for?';
   }, [error, list]);
 

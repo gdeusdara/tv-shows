@@ -1,9 +1,10 @@
 import { getDetails } from '@store/actions';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const useDetails = ({ id }) => {
   const dispatch = useDispatch();
+  const [currSeason, setCurrSeason] = useState(0);
   const {
     loading,
     data: list,
@@ -22,6 +23,8 @@ const useDetails = ({ id }) => {
     list,
     loading,
     error,
+    currSeason,
+    setCurrSeason,
   };
 };
 

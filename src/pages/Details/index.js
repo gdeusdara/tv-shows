@@ -4,6 +4,7 @@ import { tvshowType } from '@constants/types';
 import EpisodesList from '@components/EpisodesList';
 import useDetails from '@hooks/useDetails';
 import Informations from '@components/Informations';
+import SeasonSelectionBottomSheet from '@components/SeasonSelectionBottomSheet';
 import {
   Content,
   Scroll,
@@ -12,7 +13,9 @@ import {
 export default function Details({ route }) {
   const { show } = route.params;
 
-  const { list, loading, error } = useDetails({ id: show.id });
+  const {
+    list, loading, error, setCurrSeason, currSeason,
+  } = useDetails({ id: show.id });
 
   const details = [
     {
@@ -37,8 +40,13 @@ export default function Details({ route }) {
     <Content>
       <Scroll>
         {renderInfo()}
-        <EpisodesList data={list} loading={loading} message={error} />
+        <EpisodesList data={list?.[currSeason]?.data} loading={loading} message={error} />
       </Scroll>
+      <SeasonSelectionBottomSheet
+        onPressSeason={(item) => setCurrSeason(item)}
+        seasons={list}
+        season={list?.[currSeason] ? `Season ${list[currSeason].season}` : 'Loading...'}
+      />
     </Content>
   );
 }

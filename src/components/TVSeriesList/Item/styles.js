@@ -22,7 +22,7 @@ export const Poster = styled.Image.attrs(({ theme }) => ({
   width: ((win.width / 2) - (theme.sizes.M * 2)),
 }))`
   border-radius: ${({ theme }) => theme.sizes.M}px;
-  width: 100%;
+  width: ${({ theme }) => ((win.width / 2) - (theme.sizes.M * 2))};
   height: undefined;
   aspect-ratio: ${5 / 7};
 `;

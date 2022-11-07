@@ -31,7 +31,9 @@ export const TitleView = styled(LinearGradient).attrs(({ theme }) => ({
 export const Title = styled(Text).attrs(({ theme }) => ({
   size: theme.sizes.XX,
   numberOfLines: 2,
-}))``;
+}))`
+  text-align: center;
+`;
 
 export const SectionTitle = styled(Text).attrs(({ theme }) => ({
   size: theme.sizes.L,
