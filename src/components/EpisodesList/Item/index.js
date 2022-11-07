@@ -10,7 +10,7 @@ function Item({ item }) {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.push('Episode', { show: item });
+    navigation.navigate('Episode', { episode: item });
   };
 
   return useMemo(() => (
