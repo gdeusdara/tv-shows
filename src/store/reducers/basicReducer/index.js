@@ -33,6 +33,8 @@ const basicReducer = (actions = { start: 'START', success: 'SUCCESS', failure: '
       case actions.failure:
         return {
           ...state,
+          data: null,
+          extraData: null,
           loading: false,
           errorMessage: action.error || '',
         };
