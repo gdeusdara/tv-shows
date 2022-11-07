@@ -6,6 +6,13 @@ import { Provider } from 'react-redux';
 import { store, persistor } from '@store';
 import { PersistGate } from 'redux-persist/integration/react';
 import Routes from '@routes/index';
+import { Platform, UIManager } from 'react-native';
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 function App() {
   return (

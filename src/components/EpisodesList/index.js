@@ -3,7 +3,7 @@ import { Container } from '@components/Basic/Container';
 import { tvshowType } from '@constants/types';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { SectionList } from 'react-native';
+import { LayoutAnimation, SectionList } from 'react-native';
 import Item from './Item';
 import { SectionTitle, TouchableTitle } from './styles';
 
@@ -20,7 +20,7 @@ function EpisodesList({
 
   const onPressSection = (season) => {
     sectionToRender[season] = !sectionToRender[season];
-
+    LayoutAnimation.easeInEaseOut();
     setSectionToRender({ ...sectionToRender });
   };
 
