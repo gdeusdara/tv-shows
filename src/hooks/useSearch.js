@@ -1,7 +1,7 @@
 import { useFocusEffect } from '@react-navigation/native';
 import { onSearch } from '@store/actions';
 import {
-  useEffect, useRef, useState, useCallback,
+  useEffect, useRef, useState, useCallback, useMemo,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,6 +15,13 @@ const useList = () => {
     data: list,
     error,
   } = useSelector((state) => state.search);
+
+  const message = useMemo(() => {
+    if ((list && list.length) || loading) return '';
+    if (error) return error;
+
+    return 'What are you looking for?';
+  }, [error, list]);
 
   const fetchList = () => {
     dispatch(onSearch({ q: query }));
@@ -43,6 +50,7 @@ const useList = () => {
     query,
     setQuery,
     inputRef,
+    message,
   };
 };
 

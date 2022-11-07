@@ -3,7 +3,7 @@ import { ActivityIndicator } from '@components/Basic/ActivityIndicator';
 import { tvshowType } from '@constants/types';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Keyboard } from 'react-native';
 import Item from './Item';
 import { Content, Message } from './styles';
 
@@ -41,6 +41,8 @@ function TVSeriesList({
         onEndReachedThreshold={0.2}
         onEndReached={onEndReached}
         ListFooterComponent={listFooterComponent}
+        onScrollBeginDrag={() => Keyboard.dismiss()}
+        keyboardShouldPersistTaps="handled"
       />
     </Container>
   );

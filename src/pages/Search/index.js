@@ -6,7 +6,7 @@ import { Content } from './styles';
 
 export default function Search() {
   const {
-    list, error, loading, query, setQuery, inputRef,
+    list, message, loading, query, setQuery, inputRef,
   } = useSearch();
 
   return (
@@ -19,7 +19,7 @@ export default function Search() {
       />
       <TVSeriesList
         data={list}
-        message={error}
+        message={message}
         loading={loading}
       />
     </Content>

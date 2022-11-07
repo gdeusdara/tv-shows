@@ -2,7 +2,7 @@ import { ActivityIndicator } from '@components/Basic/ActivityIndicator';
 import { Container } from '@components/Basic/Container';
 import { tvshowType } from '@constants/types';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LayoutAnimation, SectionList } from 'react-native';
 import Item from './Item';
 import { SectionTitle, TouchableTitle } from './styles';
@@ -10,7 +10,6 @@ import { SectionTitle, TouchableTitle } from './styles';
 function EpisodesList({
   data,
   loading,
-  ListHeaderComponent,
 }) {
   const [sectionToRender, setSectionToRender] = useState({});
 
@@ -36,6 +35,13 @@ function EpisodesList({
     return null;
   };
 
+  useEffect(() => {
+    if (data && data.length === 1) {
+      sectionToRender[data[0].season] = true;
+      setSectionToRender(sectionToRender);
+    }
+  }, [data]);
+
   return (
     <Container>
       <SectionList
@@ -45,7 +51,8 @@ function EpisodesList({
         keyExtractor={(item) => item.id}
         renderSectionHeader={header}
         ListEmptyComponent={renderEmptyComponent}
-        ListHeaderComponent={ListHeaderComponent}
+        initialNumToRender={200}
+        maxToRenderPerBatch={200}
       />
     </Container>
   );
@@ -54,13 +61,11 @@ function EpisodesList({
 EpisodesList.propTypes = {
   data: PropTypes.arrayOf(tvshowType),
   loading: PropTypes.bool,
-  ListHeaderComponent: PropTypes.element,
 };
 
 EpisodesList.defaultProps = {
   data: [],
   loading: false,
-  ListHeaderComponent: () => {},
 };
 
 export default EpisodesList;
