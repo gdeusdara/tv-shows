@@ -15,9 +15,9 @@
 
 ## Important
 
-This project was made using [Expo](https://docs.expo.dev/) for [React Native](https://reactnative.dev/) (Note: I work professionaly with react-native-cli).
+This project was made using [Expo](https://docs.expo.dev/) for [React Native](https://reactnative.dev/) (Note: I work professionally with react-native-cli).
 
-To run this project you need to have a node enviroment (version >= 14) and [Expo](https://docs.expo.dev/) installed.
+To run this project you need to have a node environment (version >= 14) and [Expo](https://docs.expo.dev/) installed.
 
 ## Run Project
 
@@ -57,4 +57,4 @@ A universal apk was generated using the following command:
 expo build:android -t apk
 ```
 
-It is on the [distribution folder](./distribution/) (:
+It is in the [distribution folder](./distribution/) (:
