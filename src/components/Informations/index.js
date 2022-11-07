@@ -36,10 +36,12 @@ export default function Informations({ info, details }) {
         <Title>{info.name}</Title>
       </TitleView>
       <Container>
-        <Section>
-          <SectionTitle>Summary</SectionTitle>
-          <Summary value={info.summary} />
-        </Section>
+        {info.summary ? (
+          <Section>
+            <SectionTitle>Summary</SectionTitle>
+            <Summary value={info.summary} />
+          </Section>
+        ) : null}
         {renderInfo()}
       </Container>
     </Content>
@@ -50,6 +52,6 @@ Informations.propTypes = {
   info: tvshowType.isRequired,
   details: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   })).isRequired,
 };

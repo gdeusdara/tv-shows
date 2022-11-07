@@ -18,12 +18,6 @@ const useDetails = ({ id }) => {
     fetchDetails();
   }, []);
 
-  useEffect(() => {
-   console.log('Ep LIST', list);
-  }, [list]);
-
-
-
   return {
     list,
     loading,

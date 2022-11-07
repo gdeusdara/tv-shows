@@ -39,7 +39,7 @@ function EpisodesList({
   return (
     <Container>
       <SectionList
-        sections={data}
+        sections={data || []}
         stickySectionHeadersEnabled
         renderItem={renderItem}
         keyExtractor={(item) => item.id}

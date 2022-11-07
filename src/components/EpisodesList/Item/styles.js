@@ -9,7 +9,7 @@ export const Container = styled.TouchableOpacity`
   flex-direction: row;
   padding: ${({ theme }) => theme.sizes.S}px;
   background-color: ${({ theme }) => theme.colors.secondary};
-  border-radius: ${({ theme }) => theme.sizes.M};
+  border-radius: ${({ theme }) => theme.sizes.M}px;
   margin: ${({ theme }) => theme.sizes.SS}px 0px;
 `;
 
@@ -32,7 +32,7 @@ export const DescText = styled(Text).attrs(({ theme }) => ({
 export const Desc = styled(HTMLView).attrs(() => ({
   renderNode: (node, index, siblings, parent, defaultRenderer) => {
     if (node.name === 'p') {
-      return <DescText key={`${node.name}${index}`}>{node.children[0].data}</DescText>;
+      return <DescText key={`${node.name}${index}`}>{node.children?.[0]?.data || ''}</DescText>;
     }
 
     return defaultRenderer;

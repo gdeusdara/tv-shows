@@ -3,6 +3,7 @@ import SearchIcon from '@components/SearchIcon';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useTheme } from 'styled-components';
 import { Favorites, List, Search } from '@pages/index';
+import { SafeAreaView } from '@components/Basic/SafeAreaView';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -30,11 +31,13 @@ function Tabs() {
   };
 
   return (
-    <Tab.Navigator screenOptions={screenOptions} initialRouteName="List">
-      <Tab.Screen name="Search" options={SearchOptions} component={Search} />
-      <Tab.Screen name="List" options={listOptions} component={List} />
-      <Tab.Screen name="Favorites" component={Favorites} />
-    </Tab.Navigator>
+    <SafeAreaView>
+      <Tab.Navigator screenOptions={screenOptions} initialRouteName="List">
+        <Tab.Screen name="Search" options={SearchOptions} component={Search} />
+        <Tab.Screen name="List" options={listOptions} component={List} />
+        <Tab.Screen name="Favorites" component={Favorites} />
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 }
 

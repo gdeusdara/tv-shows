@@ -10,15 +10,16 @@ async function action({
   onFailure,
 }) {
   try {
-    let { extraData } = state.details;
+    const { extraData } = state.details;
+    let newExtraData = {};
 
-    if (!extraData) {
-      extraData = {};
+    if (extraData) {
+      newExtraData = { ...extraData };
     }
 
     // caching
-    if (extraData[params.id]) {
-      onSuccess([...extraData[params.id]]);
+    if (newExtraData[params.id]) {
+      onSuccess([...newExtraData[params.id]]);
       return;
     }
 
@@ -53,9 +54,9 @@ async function action({
     });
 
     // saving cache
-    extraData[params.id] = seasons;
+    newExtraData[params.id] = seasons;
 
-    onSuccess([...seasons], extraData);
+    onSuccess([...seasons], newExtraData);
   } catch (err) {
     console.log('err', err);
     onFailure('An error has ocurred while loading the episodes');

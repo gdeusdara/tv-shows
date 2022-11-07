@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import { Text } from '@components/Basic/Text';
 import { Dimensions } from 'react-native';
-import AutoHeightImage from 'react-native-auto-height-image';
 
 const win = Dimensions.get('window');
 
@@ -19,8 +18,11 @@ export const Title = styled(Text).attrs(() => ({
   padding-bottom: ${({ theme }) => theme.sizes.S}px;
 `;
 
-export const Poster = styled(AutoHeightImage).attrs(({ theme }) => ({
+export const Poster = styled.Image.attrs(({ theme }) => ({
   width: ((win.width / 2) - (theme.sizes.M * 2)),
 }))`
   border-radius: ${({ theme }) => theme.sizes.M}px;
+  width: 100%;
+  height: undefined;
+  aspect-ratio: ${5 / 7};
 `;

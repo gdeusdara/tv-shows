@@ -15,7 +15,7 @@ export const Poster = styled.Image.attrs(() => ({
   resizeMode: 'cover',
 }))`
   width: 100%;
-  height: ${({ theme }) => (win.height / 2) - theme.sizes.L};
+  height: ${({ theme }) => (win.height / 2) - theme.sizes.L}px;
 `;
 
 export const TitleView = styled(LinearGradient).attrs(({ theme }) => ({
