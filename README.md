@@ -38,17 +38,15 @@ OR
 yarn ios
 ```
 
-## Done Tasks
+## Features
 
-### Required Tasks
-
-All the required tasks are completed.
-
-### Optional Tasks
-
-- Allow the user to save a series as a favorite.
-- Allow the user to delete a series from the favorites list.
-- Allow the user to browse their favorite series in alphabetical order, and click on one to see its details.
+- List all of the series contained in the API used by the paging scheme provided by the
+API.
+- Users can search series by name.
+- After clicking on a series, the application shows the details of the series
+- User can save a series as a favorite.
+- User can delete a series from the favorites list.
+- User can browse their favorite series in alphabetical order, and click on one to see its details.
 
 ## APK for testing
 
