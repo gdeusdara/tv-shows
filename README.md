@@ -56,4 +56,4 @@ A universal apk was generated using the following command:
 expo build:android -t apk
 ```
 
-It is in the [distribution folder](./distribution/) (:
+There is one in the [distribution folder](./distribution/) (:
